@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Home from './components/Home';
+import Ordersuccess from './components/Cart/Ordersuccess';
+import Checkout from './components/Cart/Checkout';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import Dashbord from './components/Kitchen/Dashbord';
 
-function App() {
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ordersuccess" element={<Ordersuccess />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/dashbord" element={<Dashbord />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </>
   );
 }
 
