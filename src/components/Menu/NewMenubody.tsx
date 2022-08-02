@@ -37,11 +37,9 @@ export default function NewMenubody({ item }: any) {
             />
           </MDBCol>
           <MDBCol size="6" md="4">
-            <MDBCardTitle>{item.name}</MDBCardTitle>
-            <MDBCardText>{item.details}</MDBCardText>
-            <MDBCardText>
-              <small className="text-muted">{`$ ${item.price}`}</small>
-            </MDBCardText>
+            <MDBCardTitle>{item.itemName}</MDBCardTitle>
+            <small className="text-muted">{item.ingredients}</small>
+            <MDBCardText>{`$${item.price}`}</MDBCardText>
             <div className="d-flex justify-content-xxl-evenly align-items-center">
               <AiOutlinePlus onClick={addHandler}></AiOutlinePlus>
               <span
