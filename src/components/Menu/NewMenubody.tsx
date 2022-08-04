@@ -1,22 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { GrFormSubtract } from 'react-icons/gr';
+import {addToCart} from '../../redux/actions/cart.actions';
+import { useDispatch, useSelector,  } from 'react-redux';
 import {
-  MDBCard,
+  
   MDBCardTitle,
   MDBCardText,
   MDBCardImage,
   MDBRow,
   MDBCol,
 } from 'mdb-react-ui-kit';
+import { AppProps, AppState, Product } from '../../types';
 
-export default function NewMenubody({ item }: any) {
+export default function NewMenubody({ product }: AppProps) {
+  // const products = useSelector((state: AppState) => state.productsDataReducer);
+  const cartItems = useSelector((state: AppState) => state.handlerCartDataReducer)
   const [value, setValue] = useState(0);
 
-  const addHandler = () => {
-    setValue(value + 1);
-  };
+  const dispatch = useDispatch();
 
+  const addHandler = (product: Product) => {
+    setValue(value + 1);
+    dispatch(addToCart(product))
+  };
+  useEffect(() => {
+    console.log(cartItems)
+  }, [cartItems])
   const subtractionHandler = () => {
     if (value <= 0) {
       return value === 0;
@@ -31,17 +41,17 @@ export default function NewMenubody({ item }: any) {
           <MDBCol sm="5" md="7">
             <MDBCardImage
               style={{ width: '100%' }}
-              src={item.img}
+              src={product?.img}
               alt="pizza"
               fluid
             />
           </MDBCol>
           <MDBCol size="6" md="4">
-            <MDBCardTitle>{item.itemName}</MDBCardTitle>
-            <small className="text-muted">{item.ingredients}</small>
-            <MDBCardText>{`$${item.price}`}</MDBCardText>
+            <MDBCardTitle>{product?.name}</MDBCardTitle>
+            <small className="text-muted">{product?.description}</small>
+            <MDBCardText>{`$${product?.price}`}</MDBCardText>
             <div className="d-flex justify-content-xxl-evenly align-items-center">
-              <AiOutlinePlus onClick={addHandler}></AiOutlinePlus>
+              <AiOutlinePlus onClick={() => addHandler(product as Product)}></AiOutlinePlus>
               <span
                 style={{
                   textAlign: 'center',

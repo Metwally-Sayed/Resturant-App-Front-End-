@@ -5,6 +5,7 @@ import { GrFormSubtract } from 'react-icons/gr';
 import logo from '../../imgs/fastDelivery.png';
 import pizzaLogo from '../../imgs/pizzaModel.png';
 import { Link } from 'react-router-dom';
+
 import {
   MDBCardTitle,
   MDBCardText,

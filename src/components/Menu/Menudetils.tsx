@@ -1,14 +1,15 @@
 import { Container } from 'react-bootstrap';
 import { MDBBtn, MDBBtnGroup } from 'mdb-react-ui-kit';
+import { AppProps } from '../../types';
 
-const Menudetil = ({ filterHandler }: any) => {
+const Menudetil = ({ filterHandler, filterPopularHandler }: AppProps) => {
   return (
     <Container className="d-flex justify-content-evenly mt-5">
       <MDBBtnGroup shadow="3">
         <MDBBtn
           id="btttn"
           onClick={() => {
-            filterHandler('popular');
+            filterPopularHandler && filterPopularHandler();
           }}
           style={{ backgroundColor: '#FF9200', color: 'white' }}
           color="light"
@@ -17,7 +18,7 @@ const Menudetil = ({ filterHandler }: any) => {
         </MDBBtn>
         <MDBBtn
           onClick={() => {
-            filterHandler('pizza');
+            filterHandler && filterHandler('Pizza');
           }}
           style={{ backgroundColor: '#FF9200', color: 'white' }}
           color="light"
@@ -26,7 +27,7 @@ const Menudetil = ({ filterHandler }: any) => {
         </MDBBtn>
         <MDBBtn
           onClick={() => {
-            filterHandler('burger');
+            filterHandler && filterHandler('Burger');
           }}
           style={{ backgroundColor: '#FF9200', color: 'white' }}
           color="light"
@@ -36,7 +37,7 @@ const Menudetil = ({ filterHandler }: any) => {
 
         <MDBBtn
           onClick={() => {
-            filterHandler('drinks');
+            filterHandler && filterHandler('drinks');
           }}
           style={{ backgroundColor: '#FF9200', color: 'white' }}
           color="light"
