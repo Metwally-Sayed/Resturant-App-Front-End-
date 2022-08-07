@@ -1,3 +1,5 @@
+import { FormikHelpers } from "formik";
+
 export interface AppProps {
   product?: Product
 }
@@ -5,7 +7,7 @@ export interface AppProps {
 
 export interface ProductAction {
   type: string,
-  payload: Product[]
+  payload: Product
 }
 
 
@@ -18,6 +20,7 @@ export interface CartAction {
 
 
 export interface Product {
+  map(arg0: (selecterProduct: any) => JSX.Element): import("react").ReactNode;
   category: Category;
   id: number;
   name: string;
@@ -25,7 +28,7 @@ export interface Product {
   price: number;
   img: string;
   popular: boolean;
- Qty?: number
+  quantity?: number
 
 }
 
@@ -45,5 +48,13 @@ export interface AppProps {
 export interface AppState {
 
   productsDataReducer: Product[],
-  handlerCartDataReducer: Product[]
+  handlerCartDataReducer: Product
 }
+
+export interface INITIAL_STATE {
+
+  product?: [],
+  cart?: [],
+  currentItem?: []
+}
+
