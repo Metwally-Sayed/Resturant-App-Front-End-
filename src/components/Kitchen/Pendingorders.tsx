@@ -1,8 +1,6 @@
-import React from 'react';
 
-type Props = {};
 
-const Pendingorders = (props: Props) => {
+const Pendingorders = () => {
   return <div>ccf</div>;
 };
 

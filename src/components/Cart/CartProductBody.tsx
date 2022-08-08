@@ -14,7 +14,7 @@ import { AppState, Product } from '../../types';
 import { useEffect } from 'react';
 import {
   addToCart,
-  adjustQty,
+  decrementQty,
   removeFromCart,
 } from '../../redux/actions/cart.actions';
 
@@ -34,14 +34,14 @@ const CartProductBody = ({ product }: any) => {
   };
 
   const subtractionHandler = () => {
-    dispatch(adjustQty(product as Product));
+    dispatch(decrementQty(product as Product));
   };
 
   useEffect(() => {
     console.log(daletedItem);
   }, [daletedItem]);
   return (
-    <MDBRow key={product.id} className="mb-3">
+    <MDBRow  className="mb-3">
       <div className="md-8">
         <MDBRow className="g-0">
           <MDBCol sm="5" md="7">

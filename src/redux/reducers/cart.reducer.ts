@@ -50,7 +50,7 @@ const handlerCartDataReducer = (state: Product[] = [], action: CartAction) => {
 
 
 
-    case "ADJUST_QTY":
+    case "DECREMENT_QTY":
       const item = state.find((item) => item.id === action.payload.id)
       if (item?.quantity === 1) {
         return state.filter((itemx) => itemx.id !== item.id)
@@ -58,7 +58,6 @@ const handlerCartDataReducer = (state: Product[] = [], action: CartAction) => {
         return state.map((item) => item.id === action.payload.id ? { ...item, quantity: item.quantity! - 1 } : item
         );
       }
-
 
 
 

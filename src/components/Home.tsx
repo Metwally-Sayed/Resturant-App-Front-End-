@@ -1,9 +1,8 @@
 import Heroimg from './Heroimg';
 import Menu from './Menu/Menu';
 
-type Props = {};
 
-const Home = (props: Props) => {
+const Home = () => {
   return (
     <div>
       <Heroimg />

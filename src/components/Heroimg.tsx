@@ -1,5 +1,4 @@
 import React from 'react';
-// import { logo } from '../../public/imgs/pizzaHero.png';
 import Image from 'react-bootstrap/Image';
 import Hero from '../imgs/pizzaHero.png';
 import { Container } from 'react-bootstrap';

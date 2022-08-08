@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AppState } from '../../types';
 import {
   MDBCardTitle,
@@ -11,7 +11,6 @@ import {
   MDBCol,
 } from 'mdb-react-ui-kit';
 import { sendOrder } from '../../api';
-// const { default: axios } = require('axios');
 function Checkout() {
   const [Name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -21,6 +20,8 @@ function Checkout() {
   const products = useSelector(
     (state: AppState) => state.handlerCartDataReducer,
   );
+
+  const navigate = useNavigate();
 
   const submitHandler = (e: any) => {
     e.preventDefault();
@@ -33,8 +34,9 @@ function Checkout() {
       products,
     };
 
-    // axios.post('http://localhost:9999/order', order);
     sendOrder(order);
+
+    navigate('/ordersuccess');
 
     console.log(products);
   };
@@ -95,11 +97,9 @@ function Checkout() {
                 />
               </Container>
               <div className="mt-5">
-                {/* <Link to={'/ordersuccess'}> */}
                 <Button type="submit" className="m-2" variant="light" size="lg">
                   Order Now
                 </Button>
-                {/* </Link> */}
                 <Link to={'/'}>
                   <Button variant="danger" size="lg">
                     Canel

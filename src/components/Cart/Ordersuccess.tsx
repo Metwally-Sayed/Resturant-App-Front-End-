@@ -1,8 +1,8 @@
 import check from '../../imgs/Check.png';
-import { Container, Image } from 'react-bootstrap';
-type Props = {};
+import {  Image } from 'react-bootstrap';
 
-const Ordersuccess = (props: Props) => {
+
+const Ordersuccess = () => {
   return (
     <>
       <div className=" d-flex align-items-center justify-content-center">

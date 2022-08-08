@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { GrFormSubtract } from 'react-icons/gr';
-import { addToCart, adjustQty } from '../../redux/actions/cart.actions';
+import { addToCart, decrementQty } from '../../redux/actions/cart.actions';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   MDBCardTitle,
@@ -38,7 +38,7 @@ function NewMenubody({ product }: AppProps) {
       return value === 0;
     }
     setValue(value - 1);
-    dispatch(adjustQty (product as Product));
+    dispatch(decrementQty(product as Product));
   };
 
   return (

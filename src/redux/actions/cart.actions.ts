@@ -17,9 +17,9 @@ export const removeFromCart = (product: Product) => {
 
 
 
-export const adjustQty = (product: Product) => {
+export const decrementQty = (product: Product) => {
   return {
-    type: "ADJUST_QTY",
+    type: "DECREMENT_QTY",
     payload: product
   }
 }

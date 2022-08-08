@@ -1,10 +1,10 @@
 import { Modal, Offcanvas } from 'react-bootstrap';
-import { Image,  Button,  Stack } from 'react-bootstrap';
+import { Image, Button, Stack } from 'react-bootstrap';
 import logo from '../../imgs/fastDelivery.png';
 import CartProductBody from './CartProductBody';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {  AppState } from '../../types';
+import { AppState } from '../../types';
 import { useEffect } from 'react';
 
 const Cart = ({ show, handleShow, handleClose }: any) => {
@@ -31,7 +31,7 @@ const Cart = ({ show, handleShow, handleClose }: any) => {
         <Offcanvas.Body>
           <Modal.Body>
             {productsData.map((product) => (
-              <CartProductBody product={product} />
+              <CartProductBody key={product.id} product={product} />
             ))}
           </Modal.Body>
         </Offcanvas.Body>

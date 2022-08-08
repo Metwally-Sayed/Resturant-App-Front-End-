@@ -27,7 +27,7 @@ function Header(): JSX.Element {
               </span>
             </Navbar.Brand>
           </NavLink>
-          {location.pathname === '/penndingorders' ? (
+          {location.pathname === '/dashbord' ? (
             ''
           ) : (
             <Nav className="justify-content-end flex-grow-1 pe-3">
