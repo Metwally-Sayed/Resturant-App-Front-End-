@@ -1,6 +1,5 @@
 import { Container, Card, Col, Row } from 'react-bootstrap';
 
-
 const Footer = () => {
   return (
     <Card
@@ -9,8 +8,6 @@ const Footer = () => {
         borderRadius: '0px',
         backgroundColor: '#303030',
         color: 'white',
-        position: 'fixed',
-        bottom: '0',
       }}
     >
       <Container className="py-2 ">
