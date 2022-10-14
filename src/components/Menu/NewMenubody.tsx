@@ -11,6 +11,7 @@ import {
   MDBCol,
 } from 'mdb-react-ui-kit';
 import { AppProps, AppState, Product } from '../../types';
+import { Container } from 'react-bootstrap';
 
 // product => is prop from menu having the data from the redux store which i saved by API
 function NewMenubody({ product }: AppProps) {
@@ -42,7 +43,7 @@ function NewMenubody({ product }: AppProps) {
   };
 
   return (
-    <>
+    <Container className="mt-3">
       <div id="Menu" style={{ maxWidth: '540px' }}>
         <MDBRow className="g-0">
           <MDBCol sm="5" md="7">
@@ -75,7 +76,7 @@ function NewMenubody({ product }: AppProps) {
           </MDBCol>
         </MDBRow>
       </div>
-    </>
+    </Container>
   );
 }
 

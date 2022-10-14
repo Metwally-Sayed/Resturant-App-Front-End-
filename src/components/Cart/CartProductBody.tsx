@@ -37,11 +37,13 @@ const CartProductBody = ({ product }: any) => {
     dispatch(decrementQty(product as Product));
   };
 
+  let totalPrice = +product.price * product.quantity;
+
   useEffect(() => {
     console.log(daletedItem);
   }, [daletedItem]);
   return (
-    <MDBRow  className="mb-3">
+    <MDBRow className="mb-3">
       <div className="md-8">
         <MDBRow className="g-0">
           <MDBCol sm="5" md="7">
@@ -56,7 +58,7 @@ const CartProductBody = ({ product }: any) => {
             <MDBCardTitle>{product.name}</MDBCardTitle>
             <MDBCardText>{product.description}</MDBCardText>
             <MDBCardText>
-              <small className="text-muted"> {product.price} </small>
+              <small className="text-muted"> ${totalPrice} </small>
             </MDBCardText>
             <div className="d-flex justify-content-xxl-evenly align-items-center">
               <AiOutlinePlus onClick={addHandler}></AiOutlinePlus>

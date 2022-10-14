@@ -1,6 +1,6 @@
-export const getOrder = (order: any) => {
+export const getOrder = (orders: any) => {
   return {
-    type: "GET_ORDER",
-    payload: order
+    type: "GET_ORDERS",
+    payload: orders
   }
 }

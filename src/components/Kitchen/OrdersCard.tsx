@@ -1,35 +1,43 @@
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Row, Col } from 'react-bootstrap';
 
-const OrdersCard = ({ item }: any) => {
-  const data = item.orderline;
-  console.log(data);
+const OrdersCard = ({ order }: any) => {
+  const productname = order.orderline.map((item: any) => item.products.name);
+  console.log(order);
 
-  const newData = data.flat().map((product: any) => {
-    return {
-      productName: product.products.name,
-      qty: product.quantity,
-    };
+  console.log(order.orderline);
+  const orderQuantity = order.orderline.map((item: any) => {
+    return item.quantity;
   });
 
-  console.log(newData);
+  console.log(productname);
 
+  const statuHandler = () => order.completed === true;
+  
   return (
-    <Card className="d-flex " style={{ width: '50%' }}>
-      <Card.Header>Featured</Card.Header>
-      <Card.Body>
-        {newData.map((eleData: any) => (
+    <Col md={6}>
+      <Card className="d-flex " style={{ width: '50%' }}>
+        <Card.Header>{order.id}</Card.Header>
+        <Card.Body>
           <>
             <div>
-              <span>
-                {eleData.productName} &nbsp;&nbsp;Qty:{eleData.qty}{' '}
-              </span>
+              <Row>
+                <Col md={9}>
+                  <p>{productname}</p>
+                </Col>
+                <Col md={3}>
+                  {orderQuantity.map((qty: any) => (
+                    <div>{qty}</div>
+                  ))}
+                </Col>
+              </Row>
             </div>
           </>
-        ))}
-
-        <Button variant="primary">Done</Button>
-      </Card.Body>
-    </Card>
+          <Button onClick={statuHandler} variant="primary">
+            Done
+          </Button>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 export default OrdersCard;

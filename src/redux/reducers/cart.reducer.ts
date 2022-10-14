@@ -35,9 +35,7 @@ const handlerCartDataReducer = (state: Product[] = [], action: CartAction) => {
           }
         })
 
-
       }
-
 
 
     case "REMOVE_FROM_CART":
@@ -49,7 +47,6 @@ const handlerCartDataReducer = (state: Product[] = [], action: CartAction) => {
       }
 
 
-
     case "DECREMENT_QTY":
       const item = state.find((item) => item.id === action.payload.id)
       if (item?.quantity === 1) {
@@ -59,39 +56,11 @@ const handlerCartDataReducer = (state: Product[] = [], action: CartAction) => {
         );
       }
 
-
-
-
-
     default:
       return state;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
 
 export default handlerCartDataReducer
 

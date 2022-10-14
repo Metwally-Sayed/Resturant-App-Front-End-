@@ -47,7 +47,7 @@ function Checkout() {
 
   return (
     <div>
-      <Container>
+      <Container className="mt-4">
         <Row>
           <Col xs={12} md={8}>
             <form onSubmit={submitHandler}>
@@ -121,26 +121,28 @@ function Checkout() {
                         fluid
                       />
                     </MDBCol>
-                    <MDBCol size="6" md="4">
-                      <MDBCardTitle>{item.name}</MDBCardTitle>
-                      <MDBCardText>{item.description}</MDBCardText>
-                      <MDBCardText>
-                        <small className="text-muted"> {item.price} </small>
-                      </MDBCardText>
-                      <div className="d-flex justify-content-xxl-evenly align-items-center">
-                        <span
-                          style={{
-                            textAlign: 'center',
-                            backgroundColor: '#E1DFDF',
-                            padding: '1px',
-                            width: '20px',
-                            borderRadius: '6px',
-                          }}
-                        >
-                          {products.quantity}
-                        </span>
-                      </div>
-                    </MDBCol>
+                    <Container>
+                      <MDBCol size="6" md="4">
+                        <MDBCardTitle>{item.name}</MDBCardTitle>
+                        <MDBCardText>{item.description}</MDBCardText>
+                        <MDBCardText>
+                          <small className="text-muted"> {item.price} </small>
+                        </MDBCardText>
+                        <div className="d-flex justify-content-xxl-evenly align-items-center">
+                          <span
+                            style={{
+                              textAlign: 'center',
+                              backgroundColor: '#E1DFDF',
+                              padding: '1px',
+                              width: '20px',
+                              borderRadius: '6px',
+                            }}
+                          >
+                            {item.quantity}
+                          </span>
+                        </div>
+                      </MDBCol>
+                    </Container>
                   </MDBRow>
                 </div>
               </MDBRow>

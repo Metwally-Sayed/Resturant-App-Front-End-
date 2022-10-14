@@ -29,6 +29,10 @@ const Menu = (): JSX.Element => {
     getAll();
   }, []);
 
+  const allitems = () => {
+    return setFilteredProducts(products);
+  };
+
   const filterHandler = (selectedCategory: string) => {
     const newFilterdProducts = products.filter((product) => {
       return product.category.name === selectedCategory;
@@ -48,6 +52,7 @@ const Menu = (): JSX.Element => {
       <Menudetil
         filterHandler={filterHandler}
         filterPopularHandler={filterPopularHandler}
+        allitems={allitems}
       />
       <Container className="my-4 ml-1">
         <Row x={1} md={4} className="g-3 ">
